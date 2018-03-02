@@ -1,0 +1,56 @@
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#74b9ff"
+    android:orientation="vertical"
+    android:gravity="center"
+    tools:context="com.boisneyphilippe.githubarchitecturecomponents.fragments.UserProfileFragment">
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+
+        <ImageView
+            android:id="@+id/fragment_user_profile_image"
+            android:layout_width="100dip"
+            android:layout_height="100dip"
+            android:background="@drawable/ic_face_white_24dp"/>
+
+    </RelativeLayout>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="20dip"
+        android:orientation="vertical"
+        android:gravity="center">
+
+        <TextView
+            android:id="@+id/fragment_user_profile_username"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/colorAccent"
+            android:textStyle="bold"
+            android:textSize="20sp"
+            android:layout_margin="5dip"/>
+
+        <TextView
+            android:id="@+id/fragment_user_profile_company"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@android:color/white"
+            android:textStyle="bold"
+            android:layout_margin="5dip"/>
+
+        <TextView
+            android:id="@+id/fragment_user_profile_website"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@android:color/white"
+            android:layout_margin="5dip"/>
+
+    </LinearLayout>
+
+</LinearLayout>
