@@ -24,6 +24,6 @@ public interface UserDao {
     @Query("SELECT * FROM user WHERE login = :userLogin")
     LiveData<User> load(String userLogin);
 
-    @Query("SELECT * FROM user WHERE login = :userLogin AND lastRefresh <= :lastRefreshMax LIMIT 1")
+    @Query("SELECT * FROM user WHERE login = :userLogin AND lastRefresh > :lastRefreshMax LIMIT 1")
     User hasUser(String userLogin, Date lastRefreshMax);
 }

@@ -1,6 +1,7 @@
 package com.boisneyphilippe.githubarchitecturecomponents.repositories;
 
 import android.arch.lifecycle.LiveData;
+import android.util.Log;
 import android.widget.Toast;
 
 import com.boisneyphilippe.githubarchitecturecomponents.App;
@@ -26,7 +27,7 @@ import retrofit2.Response;
 @Singleton
 public class UserRepository {
 
-    private static int FRESH_TIMEOUT_IN_MINUTES = 3;
+    private static int FRESH_TIMEOUT_IN_MINUTES = 1;
 
     private final UserWebservice webservice;
     private final UserDao userDao;
@@ -57,6 +58,7 @@ public class UserRepository {
                 webservice.getUser(userLogin).enqueue(new Callback<User>() {
                     @Override
                     public void onResponse(Call<User> call, Response<User> response) {
+                        Log.e("TAG", "DATA REFRESHED FROM NETWORK");
                         Toast.makeText(App.context, "Data refreshed from network !", Toast.LENGTH_LONG).show();
                         executor.execute(() -> {
                             User user = response.body();
