@@ -10,7 +10,7 @@ import retrofit2.http.Path;
  * Created by Philippe on 02/03/2018.
  */
 
-public interface Webservice {
+public interface UserWebservice {
     @GET("/users/{user}")
     Call<User> getUser(@Path("user") String userId);
 }

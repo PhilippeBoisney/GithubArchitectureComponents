@@ -1,12 +1,10 @@
 package com.boisneyphilippe.githubarchitecturecomponents.repositories;
 
-import android.app.Application;
 import android.arch.lifecycle.LiveData;
-import android.util.Log;
 import android.widget.Toast;
 
 import com.boisneyphilippe.githubarchitecturecomponents.App;
-import com.boisneyphilippe.githubarchitecturecomponents.api.Webservice;
+import com.boisneyphilippe.githubarchitecturecomponents.api.UserWebservice;
 import com.boisneyphilippe.githubarchitecturecomponents.database.entity.User;
 import com.boisneyphilippe.githubarchitecturecomponents.database.dao.UserDao;
 
@@ -30,12 +28,12 @@ public class UserRepository {
 
     private static int FRESH_TIMEOUT_IN_MINUTES = 3;
 
-    private final Webservice webservice;
+    private final UserWebservice webservice;
     private final UserDao userDao;
     private final Executor executor;
 
     @Inject
-    public UserRepository(Webservice webservice, UserDao userDao, Executor executor) {
+    public UserRepository(UserWebservice webservice, UserDao userDao, Executor executor) {
         this.webservice = webservice;
         this.userDao = userDao;
         this.executor = executor;
@@ -44,18 +42,17 @@ public class UserRepository {
     // ---
 
     public LiveData<User> getUser(String userLogin) {
-        refreshUser(userLogin);
-        // return a LiveData directly from the database.
-        return userDao.load(userLogin);
+        refreshUser(userLogin); // try to refresh data if possible from Github Api
+        return userDao.load(userLogin); // return a LiveData directly from the database.
     }
 
     // ---
 
     private void refreshUser(final String userLogin) {
         executor.execute(() -> {
-            // check if user was fetched recently
+            // Check if user was fetched recently
             boolean userExists = (userDao.hasUser(userLogin, getMaxRefreshTime(new Date())) != null);
-            // if user have to be updated
+            // If user have to be updated
             if (!userExists) {
                 webservice.getUser(userLogin).enqueue(new Callback<User>() {
                     @Override

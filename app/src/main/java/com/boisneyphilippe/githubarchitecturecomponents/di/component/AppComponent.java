@@ -5,10 +5,7 @@ import android.app.Application;
 import com.boisneyphilippe.githubarchitecturecomponents.App;
 import com.boisneyphilippe.githubarchitecturecomponents.di.module.ActivityModule;
 import com.boisneyphilippe.githubarchitecturecomponents.di.module.AppModule;
-import com.boisneyphilippe.githubarchitecturecomponents.di.module.DatabaseModule;
 import com.boisneyphilippe.githubarchitecturecomponents.di.module.FragmentModule;
-import com.boisneyphilippe.githubarchitecturecomponents.di.module.NetModule;
-import com.boisneyphilippe.githubarchitecturecomponents.di.module.RepositoryModule;
 
 import javax.inject.Singleton;
 
@@ -20,7 +17,7 @@ import dagger.Component;
  */
 
 @Singleton
-@Component(modules={DatabaseModule.class, NetModule.class, RepositoryModule.class, ActivityModule.class, FragmentModule.class, AppModule.class})
+@Component(modules={ActivityModule.class, FragmentModule.class, AppModule.class})
 public interface AppComponent {
 
     @Component.Builder
