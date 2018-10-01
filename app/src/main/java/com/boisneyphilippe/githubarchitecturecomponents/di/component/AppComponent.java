@@ -11,13 +11,14 @@ import javax.inject.Singleton;
 
 import dagger.BindsInstance;
 import dagger.Component;
+import dagger.android.support.AndroidSupportInjectionModule;
 
 /**
  * Created by Philippe on 02/03/2018.
  */
 
 @Singleton
-@Component(modules={ActivityModule.class, FragmentModule.class, AppModule.class})
+@Component(modules={AndroidSupportInjectionModule.class, ActivityModule.class, FragmentModule.class, AppModule.class})
 public interface AppComponent {
 
     @Component.Builder
