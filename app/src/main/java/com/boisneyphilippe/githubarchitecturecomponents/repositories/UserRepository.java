@@ -1,13 +1,13 @@
 package com.boisneyphilippe.githubarchitecturecomponents.repositories;
 
+import android.app.Application;
 import android.arch.lifecycle.LiveData;
 import android.util.Log;
 import android.widget.Toast;
 
-import com.boisneyphilippe.githubarchitecturecomponents.App;
 import com.boisneyphilippe.githubarchitecturecomponents.api.UserWebservice;
-import com.boisneyphilippe.githubarchitecturecomponents.database.entity.User;
 import com.boisneyphilippe.githubarchitecturecomponents.database.dao.UserDao;
+import com.boisneyphilippe.githubarchitecturecomponents.database.entity.User;
 
 import java.util.Calendar;
 import java.util.Date;
@@ -29,12 +29,14 @@ public class UserRepository {
 
     private static int FRESH_TIMEOUT_IN_MINUTES = 1;
 
+    private final Application app;
     private final UserWebservice webservice;
     private final UserDao userDao;
     private final Executor executor;
 
     @Inject
-    public UserRepository(UserWebservice webservice, UserDao userDao, Executor executor) {
+    public UserRepository(Application app, UserWebservice webservice, UserDao userDao, Executor executor) {
+        this.app = app;
         this.webservice = webservice;
         this.userDao = userDao;
         this.executor = executor;
@@ -59,7 +61,7 @@ public class UserRepository {
                     @Override
                     public void onResponse(Call<User> call, Response<User> response) {
                         Log.e("TAG", "DATA REFRESHED FROM NETWORK");
-                        Toast.makeText(App.context, "Data refreshed from network !", Toast.LENGTH_LONG).show();
+                        Toast.makeText(app, "Data refreshed from network !", Toast.LENGTH_LONG).show();
                         executor.execute(() -> {
                             User user = response.body();
                             user.setLastRefresh(new Date());
