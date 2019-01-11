@@ -4,17 +4,15 @@ package com.boisneyphilippe.githubarchitecturecomponents.fragments;
 import android.arch.lifecycle.ViewModelProvider;
 import android.arch.lifecycle.ViewModelProviders;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 
-import com.boisneyphilippe.githubarchitecturecomponents.App;
 import com.boisneyphilippe.githubarchitecturecomponents.R;
 import com.boisneyphilippe.githubarchitecturecomponents.database.entity.User;
 import com.boisneyphilippe.githubarchitecturecomponents.view_models.UserProfileViewModel;
@@ -25,12 +23,12 @@ import javax.inject.Inject;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
-import dagger.android.support.AndroidSupportInjection;
+import dagger.android.support.DaggerFragment;
 
 /**
  * A simple {@link Fragment} subclass.
  */
-public class UserProfileFragment extends Fragment {
+public class UserProfileFragment extends DaggerFragment {
 
     // FOR DATA
     public static final String UID_KEY = "uid";
@@ -44,10 +42,8 @@ public class UserProfileFragment extends Fragment {
     @BindView(R.id.fragment_user_profile_company) TextView company;
     @BindView(R.id.fragment_user_profile_website) TextView website;
 
-    public UserProfileFragment() { }
-
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+    public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_user_profile, container, false);
         ButterKnife.bind(this, view);
         return view;
@@ -56,17 +52,12 @@ public class UserProfileFragment extends Fragment {
     @Override
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
-        this.configureDagger();
         this.configureViewModel();
     }
 
     // -----------------
     // CONFIGURATION
     // -----------------
-
-    private void configureDagger(){
-        AndroidSupportInjection.inject(this);
-    }
 
     private void configureViewModel(){
         String userLogin = getArguments().getString(UID_KEY);
