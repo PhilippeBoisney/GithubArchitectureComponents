@@ -30,7 +30,7 @@ abstract public class DbTest {
 
     @Before
     public void initDb() {
-        db = Room.inMemoryDatabaseBuilder(InstrumentationRegistry.getContext(),
+        db = Room.inMemoryDatabaseBuilder(InstrumentationRegistry.getInstrumentation().getContext(),
                 MyDatabase.class).build();
     }
 
