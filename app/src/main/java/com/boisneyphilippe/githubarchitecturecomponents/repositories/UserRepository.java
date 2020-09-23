@@ -1,6 +1,6 @@
 package com.boisneyphilippe.githubarchitecturecomponents.repositories;
 
-import android.arch.lifecycle.LiveData;
+import androidx.lifecycle.LiveData;
 import android.util.Log;
 import android.widget.Toast;
 

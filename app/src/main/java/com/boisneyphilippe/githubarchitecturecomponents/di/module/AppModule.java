@@ -1,7 +1,7 @@
 package com.boisneyphilippe.githubarchitecturecomponents.di.module;
 
 import android.app.Application;
-import android.arch.persistence.room.Room;
+import androidx.room.Room;
 
 import com.boisneyphilippe.githubarchitecturecomponents.api.UserWebservice;
 import com.boisneyphilippe.githubarchitecturecomponents.database.MyDatabase;

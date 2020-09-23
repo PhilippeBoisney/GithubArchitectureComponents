@@ -3,6 +3,8 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/GithubArchitectureComponents.iml" filepath="$PROJECT_DIR$/GithubArchitectureComponents.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/GithubArchitectureComponents-app.iml" filepath="$PROJECT_DIR$/.idea/modules/app/GithubArchitectureComponents-app.iml" group="GithubArchitectureComponents/app" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/Workspace-GithubArchitectureComponents.iml" filepath="$PROJECT_DIR$/.idea/modules/Workspace-GithubArchitectureComponents.iml" group="GithubArchitectureComponents" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
     </modules>
   </component>
