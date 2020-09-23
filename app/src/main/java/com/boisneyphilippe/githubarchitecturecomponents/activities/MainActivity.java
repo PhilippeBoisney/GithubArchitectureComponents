@@ -1,7 +1,7 @@
 package com.boisneyphilippe.githubarchitecturecomponents.activities;
 
-import android.support.v4.app.Fragment;
-import android.support.v7.app.AppCompatActivity;
+import androidx.fragment.app.Fragment;
+import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 
 import com.boisneyphilippe.githubarchitecturecomponents.R;
@@ -10,7 +10,6 @@ import com.boisneyphilippe.githubarchitecturecomponents.fragments.UserProfileFra
 import javax.inject.Inject;
 
 import dagger.android.AndroidInjection;
-import dagger.android.AndroidInjector;
 import dagger.android.DispatchingAndroidInjector;
 import dagger.android.support.HasSupportFragmentInjector;
 

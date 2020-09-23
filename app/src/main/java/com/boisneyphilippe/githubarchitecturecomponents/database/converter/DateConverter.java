@@ -1,6 +1,6 @@
 package com.boisneyphilippe.githubarchitecturecomponents.database.converter;
 
-import android.arch.persistence.room.TypeConverter;
+import androidx.room.TypeConverter;
 
 import java.util.Date;
 

@@ -1,7 +1,7 @@
 package com.boisneyphilippe.githubarchitecturecomponents.di.module;
 
-import android.arch.lifecycle.ViewModel;
-import android.arch.lifecycle.ViewModelProvider;
+import androidx.lifecycle.ViewModel;
+import androidx.lifecycle.ViewModelProvider;
 
 import com.boisneyphilippe.githubarchitecturecomponents.di.key.ViewModelKey;
 import com.boisneyphilippe.githubarchitecturecomponents.view_models.FactoryViewModel;

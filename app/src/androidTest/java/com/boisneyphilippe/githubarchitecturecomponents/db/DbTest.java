@@ -17,8 +17,8 @@
 package com.boisneyphilippe.githubarchitecturecomponents.db;
 
 
-import android.arch.persistence.room.Room;
-import android.support.test.InstrumentationRegistry;
+import androidx.room.Room;
+import androidx.test.platform.app.InstrumentationRegistry;
 
 import com.boisneyphilippe.githubarchitecturecomponents.database.MyDatabase;
 
@@ -30,7 +30,7 @@ abstract public class DbTest {
 
     @Before
     public void initDb() {
-        db = Room.inMemoryDatabaseBuilder(InstrumentationRegistry.getContext(),
+        db = Room.inMemoryDatabaseBuilder(InstrumentationRegistry.getInstrumentation().getContext(),
                 MyDatabase.class).build();
     }
 

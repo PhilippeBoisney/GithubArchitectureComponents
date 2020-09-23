@@ -1,11 +1,8 @@
 package com.boisneyphilippe.githubarchitecturecomponents.db;
 
-import android.content.Context;
-import android.support.test.InstrumentationRegistry;
-import android.support.test.runner.AndroidJUnit4;
+import androidx.test.ext.junit.runners.AndroidJUnit4;
 
 import com.boisneyphilippe.githubarchitecturecomponents.database.entity.User;
-import com.boisneyphilippe.githubarchitecturecomponents.db.DbTest;
 import com.boisneyphilippe.githubarchitecturecomponents.utils.LiveDataTestUtil;
 
 import org.junit.Test;
@@ -15,7 +12,6 @@ import java.util.Date;
 
 import static org.hamcrest.CoreMatchers.is;
 import static org.hamcrest.MatcherAssert.assertThat;
-import static org.junit.Assert.*;
 
 /**
  * Instrumented test, which will execute on an Android device.
