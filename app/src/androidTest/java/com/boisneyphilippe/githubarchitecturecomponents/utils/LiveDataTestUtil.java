@@ -1,5 +1,8 @@
 package com.boisneyphilippe.githubarchitecturecomponents.utils;
 
+import android.os.Handler;
+import android.os.Looper;
+
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.Observer;
 import androidx.annotation.Nullable;
@@ -23,7 +26,12 @@ public class LiveDataTestUtil {
                 liveData.removeObserver(this);
             }
         };
-        liveData.observeForever(observer);
+        new Handler(Looper.getMainLooper()).post(new Runnable() {
+            @Override
+            public void run() {
+                liveData.observeForever(observer);
+            }
+        });
         latch.await(2, TimeUnit.SECONDS);
         //noinspection unchecked
         return (T) data[0];
