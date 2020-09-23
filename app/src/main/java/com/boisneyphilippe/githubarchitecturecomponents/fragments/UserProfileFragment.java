@@ -70,7 +70,7 @@ public class UserProfileFragment extends Fragment {
         String userLogin = getArguments().getString(UID_KEY);
         viewModel = ViewModelProviders.of(this, viewModelFactory).get(UserProfileViewModel.class);
         viewModel.init(userLogin);
-        viewModel.getUser().observe(this, user -> updateUI(user));
+        viewModel.getUser().observe(getViewLifecycleOwner(), user -> updateUI(user));
     }
 
     // -----------------
